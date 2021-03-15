@@ -32,6 +32,10 @@ public class Game {
                                    .collect(Collectors.toList()));
     }
 
+    public void bet(Player player, String inputBettingMoney) {
+        player.bet(new Money(inputBettingMoney));
+    }
+
     public void startRound() {
         drawTwoCard(dealer);
         for (Player player : players) {
@@ -103,7 +107,4 @@ public class Game {
         return dealer;
     }
 
-    public void bet(Player player, String inputBettingMoney) {
-        player.bet(new Money(inputBettingMoney));
-    }
 }

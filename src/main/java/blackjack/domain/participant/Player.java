@@ -4,6 +4,15 @@ public class Player extends Participant {
     private Money money;
     private double profitRatio;
 
+    public Player(String inputName, Money money) {
+        this(new Name(inputName), money);
+    }
+
+    private Player(Name name, Money money) {
+        super(name, 2);
+        this.money = money;
+    }
+
     public Player(String inputName) {
         this(new Name(inputName));
     }
@@ -15,6 +24,9 @@ public class Player extends Participant {
     public void bet(Money money) {
         this.money = money;
     }
+
+
+
 
 
     public void updateProfitRatio(Dealer dealer) {

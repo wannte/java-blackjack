@@ -17,7 +17,7 @@ public class ParticipantTest {
 
     @BeforeEach
     void setUp() {
-        participant = new Player("wannte");
+        participant = new Player("wannte", new Money(1000));
         deck = new Deck();
     }
 

@@ -15,9 +15,7 @@ class BettingTest {
     @BeforeEach
     void setUp() {
         money = new Money(1000);
-        player = new Player("bob");
-        player.bet(money);
-
+        player = new Player("bob", money);
         dealer = new Dealer();
     }
 

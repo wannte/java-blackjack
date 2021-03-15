@@ -23,17 +23,11 @@ public class Game {
         this.deck = new Deck(NUMBER_OF_DECK);
     }
 
-    public static Game of(List<String> playerNames) {
-        if (playerNames.isEmpty()) {
+    public static Game of(List<Player> players) {
+        if (players.isEmpty()) {
             throw new IllegalArgumentException(PLAYER_NUMBER_ERROR);
         }
-        return new Game(playerNames.stream()
-                                   .map(Player::new)
-                                   .collect(Collectors.toList()));
-    }
-
-    public void bet(Player player, String inputBettingMoney) {
-        player.bet(new Money(inputBettingMoney));
+        return new Game(players);
     }
 
     public void startRound() {
@@ -89,7 +83,7 @@ public class Game {
         }
     }
 
-    public double dealerRevenue(){
+    public double dealerRevenue() {
         return (-1) * totalPlayersRevenue();
     }
 

@@ -2,11 +2,14 @@ package blackjack.controller;
 
 import blackjack.domain.Game;
 import blackjack.domain.participant.Dealer;
+import blackjack.domain.participant.Money;
+import blackjack.domain.participant.Name;
 import blackjack.domain.participant.Player;
 import blackjack.view.InputView;
 import blackjack.view.OutputView;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BlackjackController {
 
@@ -17,7 +20,6 @@ public class BlackjackController {
 
     public void start() {
         Game game = initGame();
-        askBetting(game);
         setUpTwoCards(game);
         askPlayersDrawCard(game);
         makeDealerDrawCard(game);
@@ -27,26 +29,42 @@ public class BlackjackController {
 
     private Game initGame() {
         try {
-            return Game.of(InputView.inputPlayerNames());
+            List<Name> playerNames = inputPlayerNames();
+            return Game.of(createPlayersFrom(playerNames));
         } catch (IllegalArgumentException e) {
             OutputView.printMessage(e.getMessage());
             return initGame();
         }
     }
 
-    private void askBetting(Game game) {
-        List<Player> players = game.getPlayers();
-        for (Player player : players) {
-            askBetting(game, player);
+    private List<Name> inputPlayerNames() {
+        try {
+            return InputView.inputPlayerNames()
+                            .stream()
+                            .map(Name::new)
+                            .collect(Collectors.toList());
+        } catch (IllegalArgumentException e) {
+            OutputView.printMessage(e.getMessage());
+            return inputPlayerNames();
         }
     }
 
-    private void askBetting(Game game, Player player) {
+    private List<Player> createPlayersFrom(List<Name> playerNames) {
+        return playerNames.stream()
+                          .map(this::createPlayer)
+                          .collect(Collectors.toList());
+    }
+
+    private Player createPlayer(Name playerName) {
+        return new Player(playerName, askBettingMoney(playerName));
+    }
+
+    private Money askBettingMoney(Name playerName) {
         try {
-            game.bet(player, InputView.inputBettingMoney(player));
-        } catch (IllegalArgumentException e ) {
-            System.out.println(e.getMessage());
-            askBetting(game);
+            return new Money(InputView.inputBettingMoneyBy(playerName.toString()));
+        } catch (IllegalArgumentException e) {
+            OutputView.printMessage(e.getMessage());
+            return askBettingMoney(playerName);
         }
     }
 

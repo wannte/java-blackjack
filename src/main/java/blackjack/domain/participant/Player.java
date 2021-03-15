@@ -4,30 +4,13 @@ public class Player extends Participant {
     private Money money;
     private double profitRatio;
 
-    public Player(String inputName, Money money) {
-        this(new Name(inputName), money);
+    public Player(String stringName, Money money) {
+        this(new Name(stringName), money);
     }
-
-    private Player(Name name, Money money) {
+    public Player(Name name, Money money) {
         super(name, 2);
         this.money = money;
     }
-
-    public Player(String inputName) {
-        this(new Name(inputName));
-    }
-
-    private Player(Name name) {
-        super(name,2);
-    }
-
-    public void bet(Money money) {
-        this.money = money;
-    }
-
-
-
-
 
     public void updateProfitRatio(Dealer dealer) {
         if (isDrawWith(dealer)) {

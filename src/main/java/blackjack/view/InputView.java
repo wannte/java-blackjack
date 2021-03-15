@@ -45,8 +45,8 @@ public class InputView {
         throw new IllegalArgumentException(REPLY_ERROR_MESSAGE);
     }
 
-    public static String inputBettingMoney(Player player) {
-        OutputView.printMessage(String.format(INPUT_BET_MONEY, player.getName()));
+    public static String inputBettingMoneyBy(String playerName) {
+        OutputView.printMessage(String.format(INPUT_BET_MONEY, playerName));
         return inputString();
     }
 

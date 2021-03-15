@@ -1,24 +1,25 @@
 package blackjack.domain;
 
 import blackjack.domain.participant.Dealer;
+import blackjack.domain.participant.Money;
 import blackjack.domain.participant.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class GameTest {
-    final List<String> names = Arrays.asList("wannte", "bepoz");
     Game game;
 
     @BeforeEach
     void setUp() {
-        game = Game.of(names);
+        Player a = new Player("bob", new Money(3000));
+        Player b = new Player("kak", new Money(2000));
+        game = Game.of(Arrays.asList(a,b));
     }
 
     @Test

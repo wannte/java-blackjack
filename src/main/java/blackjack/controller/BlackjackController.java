@@ -61,7 +61,7 @@ public class BlackjackController {
 
     private Money askBettingMoney(Name playerName) {
         try {
-            return new Money(InputView.inputBettingMoneyBy(playerName.toString()));
+            return new Money(InputView.inputBettingMoneyBy(playerName.getName()));
         } catch (IllegalArgumentException e) {
             OutputView.printMessage(e.getMessage());
             return askBettingMoney(playerName);

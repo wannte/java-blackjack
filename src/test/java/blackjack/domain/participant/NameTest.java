@@ -27,6 +27,6 @@ public class NameTest {
     void nameMatch() {
         String nameStr = "tom";
         Name name = new Name(nameStr);
-        assertThat(name.toString()).isEqualTo(nameStr);
+        assertThat(name.getName()).isEqualTo(nameStr);
     }
 }

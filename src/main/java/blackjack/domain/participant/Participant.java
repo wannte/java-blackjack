@@ -63,7 +63,7 @@ public abstract class Participant {
     }
 
     public String getName() {
-        return name.toString();
+        return name.getName();
     }
 
     public double profitRatio() {

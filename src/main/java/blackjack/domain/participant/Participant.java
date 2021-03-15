@@ -32,18 +32,6 @@ public abstract class Participant {
                     .calculateResult();
     }
 
-    public boolean isBlackJack() {
-        return state instanceof Blackjack;
-    }
-
-    public boolean isBust() {
-        return state instanceof Bust;
-    }
-
-    public boolean isStay() {
-        return state instanceof Stay;
-    }
-
     public boolean isFinished() {
         return state.isFinished();
     }

@@ -2,6 +2,7 @@ package blackjack.view;
 
 import blackjack.domain.card.Card;
 import blackjack.domain.participant.Dealer;
+import blackjack.domain.participant.Money;
 import blackjack.domain.participant.Participant;
 import blackjack.domain.participant.Player;
 
@@ -76,8 +77,8 @@ public class OutputView {
         System.out.println(FINAL_REVENUE_HEADER);
     }
 
-    public static void printFinalRevenue(Participant participant, double revenue) {
-        System.out.printf(REVENUE_FORMAT, participant.getName(), (long) revenue);
+    public static void printFinalRevenue(Participant participant, int revenue) {
+        System.out.printf(REVENUE_FORMAT, participant.getName(), revenue);
     }
 
     public static void printMessage(String s) {

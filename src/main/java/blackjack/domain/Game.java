@@ -2,6 +2,7 @@ package blackjack.domain;
 
 import blackjack.domain.card.Deck;
 import blackjack.domain.participant.Dealer;
+import blackjack.domain.participant.Money;
 import blackjack.domain.participant.Participant;
 import blackjack.domain.participant.Player;
 
@@ -84,13 +85,13 @@ public class Game {
         }
     }
 
-    public double dealerRevenue() {
+    public int dealerRevenue() {
         return (-1) * totalPlayersRevenue();
     }
 
-    private double totalPlayersRevenue() {
+    private int totalPlayersRevenue() {
         return players.stream()
-                      .mapToDouble(Player::revenue)
+                      .mapToInt(Player::revenue)
                       .sum();
     }
 

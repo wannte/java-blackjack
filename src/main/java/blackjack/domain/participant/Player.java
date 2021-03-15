@@ -45,7 +45,7 @@ public class Player extends Participant {
         return isStay() && dealer.isStay();
     }
 
-    public double revenue() {
-        return money.value() * profitRatio;
+    public int revenue() {
+        return money.multiply(profitRatio);
     }
 }

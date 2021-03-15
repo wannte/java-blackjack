@@ -20,6 +20,10 @@ public class Money {
         return value;
     }
 
+    public int multiply(double ratio) {
+        return (int) (value * ratio);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

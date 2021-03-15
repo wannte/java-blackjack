@@ -24,6 +24,4 @@ public abstract class State {
     public abstract boolean isFinished();
 
     public abstract double profitRatio(State opponent);
-    public abstract double profitRatio();
-
 }

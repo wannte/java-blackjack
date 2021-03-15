@@ -23,9 +23,4 @@ public class Stay extends Finished {
             return 1;
         return Integer.compare(cards.calculateResult(), opponent.cards.calculateResult());
     }
-
-    @Override
-    public double profitRatio() {
-        return 1;
-    }
 }

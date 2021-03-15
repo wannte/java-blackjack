@@ -22,8 +22,4 @@ public class Blackjack extends Finished {
         return 1.5;
     }
 
-    @Override
-    public double profitRatio() {
-        return 1.5;
-    }
 }

@@ -27,6 +27,4 @@ public abstract class Finished extends State {
     public abstract boolean isBust();
 
     public abstract double profitRatio(State opponent);
-
-    public abstract double profitRatio();
 }

@@ -66,8 +66,8 @@ public abstract class Participant {
         return name.getName();
     }
 
-    public double profitRatio() {
-        return state.profitRatio();
+    public double profitRatio(Participant opponent) {
+        return state.profitRatio(opponent.state);
     }
 }
 

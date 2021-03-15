@@ -25,18 +25,15 @@ class BettingTest {
         player.startRound(JACK_SPADES, ACE_CLUBS);
         dealer.startRound(NINE_SPADES, JACK_SPADES);
         dealer.stay();
-
-        player.updateProfitRatio(dealer);
-        assertThat(player.revenue()).isEqualTo(1500);
+        assertThat(player.revenue(dealer)).isEqualTo(1500);
     }
 
     @Test
     void bothBlackjack() {
         player.startRound(JACK_SPADES, ACE_CLUBS);
         dealer.startRound(JACK_SPADES, ACE_CLUBS);
-        player.updateProfitRatio(dealer);
 
-        assertThat(player.revenue()).isEqualTo(0);
+        assertThat(player.revenue(dealer)).isEqualTo(0);
     }
 
     @Test
@@ -44,7 +41,7 @@ class BettingTest {
         player.startRound(JACK_SPADES, JACK_SPADES);
         dealer.startRound(JACK_SPADES, JACK_SPADES);
         dealer.stay();
-        assertThatThrownBy(() -> player.updateProfitRatio(dealer)).isInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> player.revenue(dealer)).isInstanceOf(UnsupportedOperationException.class);
     }
 
 
@@ -54,8 +51,7 @@ class BettingTest {
         player.stay();
         dealer.startRound(JACK_SPADES, NINE_SPADES);
         dealer.stay();
-        player.updateProfitRatio(dealer);
-        assertThat(player.revenue()).isEqualTo(1000);
+        assertThat(player.revenue(dealer)).isEqualTo(1000);
     }
 
     @Test
@@ -64,8 +60,7 @@ class BettingTest {
         player.stay();
         dealer.startRound(JACK_SPADES, JACK_SPADES);
         dealer.stay();
-        player.updateProfitRatio(dealer);
-        assertThat(player.revenue()).isEqualTo(0);
+        assertThat(player.revenue(dealer)).isEqualTo(0);
     }
 
     @Test
@@ -74,8 +69,7 @@ class BettingTest {
         player.stay();
         dealer.startRound(JACK_SPADES, JACK_SPADES);
         dealer.stay();
-        player.updateProfitRatio(dealer);
-        assertThat(player.revenue()).isEqualTo(-1000);
+        assertThat(player.revenue(dealer)).isEqualTo(-1000);
     }
 
     @Test
@@ -84,8 +78,7 @@ class BettingTest {
         player.addCard(JACK_SPADES);
         dealer.startRound(JACK_SPADES, JACK_SPADES);
         dealer.stay();
-        player.updateProfitRatio(dealer);
-        assertThat(player.revenue()).isEqualTo(-1000);
+        assertThat(player.revenue(dealer)).isEqualTo(-1000);
     }
 
     @Test
@@ -94,8 +87,7 @@ class BettingTest {
         player.addCard(JACK_SPADES);
         dealer.startRound(JACK_SPADES, JACK_SPADES);
         dealer.addCard(TWO_DIAMONDS);
-        player.updateProfitRatio(dealer);
-        assertThat(player.revenue()).isEqualTo(-1000);
+        assertThat(player.revenue(dealer)).isEqualTo(-1000);
     }
 
     @Test
@@ -103,7 +95,6 @@ class BettingTest {
         player.startRound(JACK_SPADES, JACK_SPADES);
         player.stay();
         dealer.startRound(JACK_SPADES, ACE_CLUBS);
-        player.updateProfitRatio(dealer);
-        assertThat(player.revenue()).isEqualTo(-1000);
+        assertThat(player.revenue(dealer)).isEqualTo(-1000);
     }
 }

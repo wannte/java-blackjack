@@ -19,9 +19,4 @@ public class Bust extends Finished {
     public double profitRatio(State opponent) {
         return -1;
     }
-
-    @Override
-    public double profitRatio() {
-        return -1;
-    }
 }

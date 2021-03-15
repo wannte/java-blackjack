@@ -101,13 +101,12 @@ public class BlackjackController {
     }
 
     public void printFinalRevenue(Game game) {
-        game.calculateGameResult();
         Dealer dealer = game.getDealer();
         List<Player> players = game.getPlayers();
         OutputView.printFinalRevenueHeader();
         OutputView.printFinalRevenue(dealer, game.dealerRevenue());
         for (Player player : players) {
-            OutputView.printFinalRevenue(player, player.revenue());
+            OutputView.printFinalRevenue(player, game.getPlayerRevenue(player));
         }
     }
 }

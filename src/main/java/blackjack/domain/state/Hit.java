@@ -27,7 +27,22 @@ public class Hit extends State {
     }
 
     @Override
+    public boolean isBlackjack() {
+        return false;
+    }
+
+    @Override
+    public boolean isBust() {
+        return false;
+    }
+
+    @Override
     public double profitRatio() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public double profitRatio(State opponent) {
         throw new UnsupportedOperationException();
     }
 }

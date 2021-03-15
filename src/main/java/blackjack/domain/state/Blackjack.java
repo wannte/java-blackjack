@@ -6,6 +6,23 @@ public class Blackjack extends Finished {
     }
 
     @Override
+    public boolean isBlackjack() {
+        return true;
+    }
+
+    @Override
+    public boolean isBust() {
+        return false;
+    }
+
+    @Override
+    public double profitRatio(State opponent) {
+        if (opponent.isBlackjack())
+            return 0;
+        return 1.5;
+    }
+
+    @Override
     public double profitRatio() {
         return 1.5;
     }

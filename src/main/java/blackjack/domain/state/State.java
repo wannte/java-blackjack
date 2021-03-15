@@ -17,8 +17,13 @@ public abstract class State {
 
     public abstract State stay();
 
+    public abstract boolean isBlackjack();
+
+    public abstract boolean isBust();
+
     public abstract boolean isFinished();
 
+    public abstract double profitRatio(State opponent);
     public abstract double profitRatio();
 
 }

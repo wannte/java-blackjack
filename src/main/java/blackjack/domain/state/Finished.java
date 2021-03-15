@@ -22,5 +22,11 @@ public abstract class Finished extends State {
         return true;
     }
 
+    public abstract boolean isBlackjack();
+
+    public abstract boolean isBust();
+
+    public abstract double profitRatio(State opponent);
+
     public abstract double profitRatio();
 }

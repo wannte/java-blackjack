@@ -6,8 +6,22 @@ public class Bust extends Finished {
     }
 
     @Override
-    public double profitRatio() {
+    public boolean isBlackjack() {
+        return false;
+    }
+
+    @Override
+    public boolean isBust() {
+        return true;
+    }
+
+    @Override
+    public double profitRatio(State opponent) {
         return -1;
     }
 
+    @Override
+    public double profitRatio() {
+        return -1;
+    }
 }

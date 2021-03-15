@@ -1,11 +1,12 @@
 package blackjack.domain;
 
 import blackjack.domain.card.Deck;
-import blackjack.domain.participant.*;
+import blackjack.domain.participant.Dealer;
+import blackjack.domain.participant.Participant;
+import blackjack.domain.participant.Player;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Game {
     public static final int BLACKJACK_NUMBER = 21;

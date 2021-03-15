@@ -2,7 +2,7 @@ package blackjack.domain.state;
 
 import blackjack.domain.card.Card;
 
-public abstract class Finished extends State{
+public abstract class Finished extends State {
     public Finished(Cards cards) {
         super(cards);
     }

@@ -16,7 +16,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CardsTest {
     private static final Card TWO_DIAMONDS = new Card(Number.TWO, Suit.DIAMONDS);

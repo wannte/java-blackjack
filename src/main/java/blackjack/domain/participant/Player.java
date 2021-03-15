@@ -1,12 +1,13 @@
 package blackjack.domain.participant;
 
 public class Player extends Participant {
-    private Money money;
+    private final Money money;
     private double profitRatio;
 
     public Player(String stringName, Money money) {
         this(new Name(stringName), money);
     }
+
     public Player(Name name, Money money) {
         super(name, 2);
         this.money = money;

@@ -19,7 +19,7 @@ public class GameTest {
     void setUp() {
         Player a = new Player("bob", new Money(3000));
         Player b = new Player("kak", new Money(2000));
-        game = Game.of(Arrays.asList(a,b));
+        game = Game.of(Arrays.asList(a, b));
     }
 
     @Test
@@ -42,6 +42,7 @@ public class GameTest {
     void dealerHitUntilStay() {
         game.startRound();
         game.playDealerTurn();
-        assertFalse(game.getDealer().shouldDraw());
+        assertFalse(game.getDealer()
+                        .shouldDraw());
     }
 }

@@ -2,7 +2,8 @@ package blackjack.domain.state;
 
 import org.junit.jupiter.api.Test;
 
-import static blackjack.domain.FixtureCards.*;
+import static blackjack.domain.FixtureCards.ACE_CLUBS;
+import static blackjack.domain.FixtureCards.JACK_SPADES;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartRoundTest {
@@ -14,7 +15,7 @@ class StartRoundTest {
 
     @Test
     void Hit() {
-        State state = StartRound.draw(JACK_SPADES,JACK_SPADES);
+        State state = StartRound.draw(JACK_SPADES, JACK_SPADES);
         assertThat(state).isInstanceOf(Hit.class);
     }
 }

@@ -4,7 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static blackjack.domain.FixtureCards.*;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class BettingTest {
 
@@ -22,7 +23,7 @@ class BettingTest {
     @Test
     void bettingIfBlackjack() {
         player.startRound(JACK_SPADES, ACE_CLUBS);
-        dealer.startRound(NINE_SPADES,JACK_SPADES);
+        dealer.startRound(NINE_SPADES, JACK_SPADES);
         dealer.stay();
 
         player.updateProfitRatio(dealer);
@@ -66,6 +67,7 @@ class BettingTest {
         player.updateProfitRatio(dealer);
         assertThat(player.revenue()).isEqualTo(0);
     }
+
     @Test
     void bettingIfStayLose() {
         player.startRound(JACK_SPADES, NINE_SPADES);
